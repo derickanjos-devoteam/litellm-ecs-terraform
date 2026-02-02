@@ -5,7 +5,7 @@
 
 set -e
 
-AWS_REGION=${1:-"us-east-1"}
+AWS_REGION=${1:-"eu-west-1"}
 AWS_PROFILE=${2:-"default"}
 REPO_NAME="litellm-dev"
 IMAGE_TAG="latest"

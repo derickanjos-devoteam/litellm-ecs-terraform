@@ -26,7 +26,7 @@ resource "aws_ecs_task_definition" "litellm_task" {
       "logDriver": "awslogs",
       "options": {
         "awslogs-group": "/ecs/litellm",
-        "awslogs-region": "us-east-1",
+        "awslogs-region": "eu-west-1",
         "awslogs-stream-prefix": "ecs"
       }
     },
@@ -37,11 +37,11 @@ resource "aws_ecs_task_definition" "litellm_task" {
       },
       {
         "name": "LITELLM_MASTER_KEY",
-        "value": "sk-1234"
+        "value": "sk-132608566813"
       },
       {
         "name": "DATABASE_URL",
-        "value": "your-postgres-db-url"
+        "value": "litellm-db-cluster-instance-1.cj88ewy8ubmi.eu-west-1.rds.amazonaws.com"
       }
     ],
     "secrets": [
@@ -52,22 +52,6 @@ resource "aws_ecs_task_definition" "litellm_task" {
       {
         "name": "AWS_SECRET_ACCESS_KEY",
         "valueFrom": "${aws_secretsmanager_secret.aws_credentials.arn}:AWS_SECRET_ACCESS_KEY::"
-      },
-      {
-        "name": "OPENAI_API_KEY",
-        "valueFrom": "${aws_secretsmanager_secret.openai_key.arn}:OPENAI_API_KEY::"
-      },
-      {
-        "name": "ANTHROPIC_API_KEY",
-        "valueFrom": "${aws_secretsmanager_secret.anthropic_key.arn}:ANTHROPIC_API_KEY::"
-      },
-      {
-        "name": "AZURE_API_KEY",
-        "valueFrom": "${aws_secretsmanager_secret.azure_key.arn}:AZURE_API_KEY::"
-      },
-      {
-        "name": "GEMINI_API_KEY",
-        "valueFrom": "${aws_secretsmanager_secret.gemini_key.arn}:GEMINI_API_KEY::"
       }
     ]
   }
