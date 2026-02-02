@@ -45,4 +45,4 @@ terraform.rc
 
 # Environment variables
 .env
-.venv
+venv/
