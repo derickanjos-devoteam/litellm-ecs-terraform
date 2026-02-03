@@ -5,16 +5,12 @@ model_list:
   - model_name: claude-bedrock-haiku
     litellm_params:
       model: bedrock/eu.anthropic.claude-haiku-4-5-20251001-v1:0
-      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
-      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: eu-west-1
     model_info:
       supports_computer_use: True
   - model_name: claude-bedrock-sonnet
     litellm_params:
       model: bedrock/eu.anthropic.claude-sonnet-4-5-20250929-v1:0
-      aws_access_key_id: os.environ/AWS_ACCESS_KEY_ID
-      aws_secret_access_key: os.environ/AWS_SECRET_ACCESS_KEY
       aws_region_name: eu-west-1
     model_info:
       supports_computer_use: True
@@ -30,8 +26,6 @@ router_settings:
 
 # add mcp servers
 mcp_servers:
-  github_mcp:
-    url: "https://api.githubcopilot.com/mcp"
-    auth_type: oauth2
-    client_id: os.environ/GITHUB_OAUTH_CLIENT_ID
-    client_secret: os.environ/GITHUB_OAUTH_CLIENT_SECRET
+  test_everything:
+    url: "https://everything.mcp.run/mcp"
+    transport: "http"
